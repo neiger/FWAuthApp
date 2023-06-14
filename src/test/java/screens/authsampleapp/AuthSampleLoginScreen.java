@@ -64,6 +64,9 @@ public class AuthSampleLoginScreen extends BaseScreen {
     @AndroidFindBy(id="android:id/message")
     private WebElement alertMsg;
 
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/btn_revoke")
+    private WebElement revokeTokenBtn;
+
     /*
     METHODS
      */
@@ -142,6 +145,15 @@ public class AuthSampleLoginScreen extends BaseScreen {
 
     public boolean checkAlerMsgPrint() {
         return printAlertMsgs();
+    }
+
+    public boolean tapRefreshToken() {
+        return tapMobElement(refreshBtn) && implicityWaitTimeOnScreenManual(1);
+    }
+
+
+    public boolean tapRevokeToken() {
+        return tapMobElement(revokeTokenBtn) && implicityWaitTimeOnScreenManual(1);
     }
 
 }
