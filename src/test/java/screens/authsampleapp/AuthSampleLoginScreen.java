@@ -147,8 +147,13 @@ public class AuthSampleLoginScreen extends BaseScreen {
         return printAlertMsgs();
     }
 
+    public boolean tapRefreshToken() {
+        return tapMobElement(refreshBtn) && implicityWaitTimeOnScreenManual(1);
+    }
+
+
     public boolean tapRevokeToken() {
-        return tapMobElement(revokeTokenBtn) && implicityWaitTimeOnScreenManual(3);
+        return tapMobElement(revokeTokenBtn) && implicityWaitTimeOnScreenManual(1);
     }
 
 }

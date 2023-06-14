@@ -46,7 +46,13 @@ public class AuthSampleLoginScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void FW_12_verifyTheUserIsAbleToLogOutFromTheSession() {
+    public void FW_84_FW_57_verifyThatUserCanRefreshToken() {
+        assertTrue(authSampleLoginScreen.tapRefreshToken(), basicErrorMsg("Unable to tap on the RefreshToken button"));
+        assertAll();
+    }
+
+    @Test
+    public void FW_12_FW_58_verifyTheUserIsAbleToLogOutFromTheSession() {
         assertTrue(authSampleLoginScreen.signOutTheApp(), basicErrorMsg("Unable to tap on LOGOUT button"));
         assertAll();
     }
@@ -65,7 +71,7 @@ public class AuthSampleLoginScreenTests extends MobileDriverManager {
     }
 
     @Test  @Parameters({"deviceType"})
-    public void revokeTokenTest(String deviceType) {
+    public void FW_85_verifyThatUserCanRevokeToken(String deviceType) {
         if(deviceType.equals("nonGMS")) {
             WebViewBrowserScreen webViewBrowserScreen = authSampleLoginScreen.signInFromBrowser();
             assertTrue(webViewBrowserScreen.verifySignPageLoads(), basicErrorMsg("The signIn web view was not loaded correctly"));
